@@ -47,8 +47,8 @@ A venue booking system built for the EazyVenue.com technical assignment.
 ### Troubleshooting
 - If venues are not displaying, check browser console for errors
 - Ensure your MongoDB connection string is correct
-- After deployment, you MUST seed the database using the `/api/seed` endpoint
-- Make sure to use POST method when seeding the database
+- After deployment, you MUST seed the database by visiting `/api/seed` in your browser
+- The API endpoints are now in the `pages/api` directory for Vercel compatibility
 
 ## API Endpoints
 
