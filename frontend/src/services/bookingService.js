@@ -1,11 +1,11 @@
-import axios from 'axios';
+import api from './api';
 
-const API_URL = '/api/bookings';
+const API_URL = '/bookings';
 
 // Get all bookings
 export const getAllBookings = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await api.get(API_URL);
     return response.data;
   } catch (error) {
     console.error('Error fetching bookings:', error);
@@ -16,7 +16,7 @@ export const getAllBookings = async () => {
 // Get booking by ID
 export const getBookingById = async (id) => {
   try {
-    const response = await axios.get(`${API_URL}/${id}`);
+    const response = await api.get(`${API_URL}?id=${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching booking with ID ${id}:`, error);
@@ -27,7 +27,7 @@ export const getBookingById = async (id) => {
 // Create a new booking
 export const createBooking = async (bookingData) => {
   try {
-    const response = await axios.post(API_URL, bookingData);
+    const response = await api.post(API_URL, bookingData);
     return response.data;
   } catch (error) {
     console.error('Error creating booking:', error);
@@ -38,7 +38,7 @@ export const createBooking = async (bookingData) => {
 // Update booking status
 export const updateBookingStatus = async (id, status) => {
   try {
-    const response = await axios.patch(`${API_URL}/${id}/status`, { status });
+    const response = await api.patch(`${API_URL}?id=${id}`, { status });
     return response.data;
   } catch (error) {
     console.error(`Error updating status for booking with ID ${id}:`, error);
@@ -49,7 +49,7 @@ export const updateBookingStatus = async (id, status) => {
 // Cancel booking
 export const cancelBooking = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}/${id}`);
+    const response = await api.delete(`${API_URL}?id=${id}`);
     return response.data;
   } catch (error) {
     console.error(`Error cancelling booking with ID ${id}:`, error);

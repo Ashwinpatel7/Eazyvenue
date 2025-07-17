@@ -1,121 +1,85 @@
-# 🏛️ VenueVista - India's Premier Venue Booking Platform
+# Mini Venue Booking Dashboard
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/venuevista-india)
+A venue booking system built for the EazyVenue.com technical assignment.
 
-A modern venue booking platform showcasing India's most beautiful venues - from royal palaces to serene backwaters. Built with React, Material-UI, and MongoDB, deployed on Vercel.
+## Features
 
-## ✨ Live Demo Features
+### Core Features
+- **Venue Management**: Add, view, and manage venues
+- **Availability Management**: Mark venues as unavailable for specific dates
+- **Booking System**: Users can view available venues and make bookings
+- **Automatic Updates**: System updates venue availability after bookings
 
-🏛️ **8 Stunning Indian Venues** - From Mumbai's Rajmahal Palace to Kerala's Backwaters  
-💰 **Indian Pricing** - All prices in ₹ (Rupees)  
-📱 **Responsive Design** - Perfect on mobile and desktop  
-👨‍💼 **Admin Dashboard** - Complete venue management  
-🔍 **Smart Search** - Filter by city, price, capacity  
-📅 **Date Management** - Block/unblock venue dates  
-
-## 🚀 Quick Deploy to Vercel
-
-### One-Click Deployment
-1. **Fork this repository**
-2. **Connect to Vercel** - Import your GitHub repo
-3. **Add Environment Variable**:
-   - `MONGODB_URI` = `your-mongodb-atlas-connection-string`
-4. **Deploy** - Vercel will build and deploy automatically
-5. **Seed Database** - Visit `/api/seed` to populate venues
-
-### Manual Deployment
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel --prod
-
-# Add environment variable in Vercel dashboard
-# Then seed database
-curl -X POST https://your-app.vercel.app/api/seed
-```
-
-## 🏛️ Featured Indian Venues
-
-1. **Rajmahal Palace Banquet** (Mumbai) - ₹8,000/hour
-2. **Lotus Garden Resort** (Udaipur) - ₹6,500/hour  
-3. **Taj Convention Center** (Gurgaon) - ₹5,500/hour
-4. **Skyline Terrace Mumbai** - ₹12,000/hour
-5. **Heritage Haveli Jaipur** - ₹4,500/hour
-6. **Backwater Bliss Kerala** - ₹3,500/hour
-7. **Golden Temple Banquet** (Amritsar) - ₹7,000/hour
-8. **Mysore Palace Gardens** - ₹5,000/hour
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18 + Material-UI + React Router
+### Tech Stack
+- **Frontend**: React with Material-UI
 - **Backend**: Vercel Serverless Functions
 - **Database**: MongoDB Atlas
 - **Deployment**: Vercel
-- **Styling**: Custom CSS + Material-UI Theme
 
-## 📱 Core Features
+## Deployment Instructions
 
-### User Features
-- Browse beautiful Indian venues
-- Advanced filtering (city, price, capacity)
-- Detailed venue information with image galleries
-- Real-time booking with availability checking
-- Mobile-responsive design
+### Prerequisites
+- A [Vercel](https://vercel.com) account
+- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account
 
-### Admin Features  
-- Add new venues with rich details
-- Manage venue availability (block/unblock dates)
-- View and manage all bookings
-- Professional dashboard interface
+### Steps to Deploy
 
-## 🔌 API Endpoints
+1. **Set up MongoDB Atlas**
+   - Create a new cluster
+   - Create a database user
+   - Get your MongoDB connection string
 
-```
-GET    /api/venues     - List all venues
-POST   /api/venues     - Add new venue
-PATCH  /api/venues     - Update venue availability
-GET    /api/bookings   - List all bookings  
-POST   /api/bookings   - Create new booking
-POST   /api/seed       - Populate sample data
-```
+2. **Deploy to Vercel**
+   - Fork/clone this repository to your GitHub account
+   - Connect your GitHub repository to Vercel
+   - Add the environment variable:
+     ```
+     MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/venue-booking
+     ```
+   - Deploy the project
 
-## 💡 Future Enhancements
+3. **Seed the Database**
+   - After deployment, make a POST request to `/api/seed`:
+     ```
+     curl -X POST https://your-vercel-app.vercel.app/api/seed
+     ```
 
-### User Analytics
+### Troubleshooting
+- If venues are not displaying, check browser console for errors
+- Ensure your MongoDB connection string is correct
+- After deployment, you MUST seed the database using the `/api/seed` endpoint
+- Make sure to use POST method when seeding the database
+
+## API Endpoints
+
+- `GET /api/venues` - Get all venues
+- `GET /api/venues?id=<venueId>` - Get venue by ID
+- `POST /api/venues` - Create a new venue
+- `PATCH /api/venues?id=<venueId>` - Update venue availability
+- `GET /api/bookings` - Get all bookings
+- `POST /api/bookings` - Create a new booking
+
+## Future Enhancements
+
+### User Search Activity Tracking
 - Track search patterns and popular venues
 - Implement personalized recommendations
 - Generate usage heatmaps and insights
 
-### Advanced Features
-- Calendar view for availability management
-- Role-based authentication system
-- Payment gateway integration
-- Email notifications and confirmations
-
-### Business Intelligence
+### Admin Analytics Dashboard
 - Revenue analytics and forecasting
 - Venue performance metrics
 - Custom reporting for venue owners
 
-## 🎯 Perfect for Portfolios
+### Calendar View for Venue Availability
+- Interactive calendar interface
+- Multi-view support (month, week, day)
+- Color coding for availability status
 
-This project demonstrates:
-- **Full-Stack Development** - React frontend + Node.js backend
-- **Modern UI/UX** - Material-UI with custom Indian theme
-- **Database Design** - MongoDB with complex relationships
-- **API Development** - RESTful APIs with proper error handling
-- **Cloud Deployment** - Serverless architecture on Vercel
-- **Responsive Design** - Mobile-first approach
-
-## 📝 Environment Variables
-
-```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/venue-booking
-```
+### Basic Authentication
+- Role-based access control
+- Secure authentication for admin and venue owners
 
 ---
 
-**🏛️ VenueVista - Discover India's Finest Venues**  
-*Built with ❤️ using modern web technologies*
+**Built for EazyVenue.com Technical Assignment**

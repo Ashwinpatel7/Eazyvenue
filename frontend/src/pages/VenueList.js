@@ -46,7 +46,9 @@ function VenueList() {
     const fetchVenues = async () => {
       try {
         setLoading(true);
+        console.log('Fetching venues...');
         const data = await getAllVenues();
+        console.log('Venues data received:', data);
         setVenues(data);
         setFilteredVenues(data);
         

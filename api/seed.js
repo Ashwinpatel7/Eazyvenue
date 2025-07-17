@@ -33,10 +33,6 @@ const VenueSchema = new mongoose.Schema({
     endDate: Date,
     reason: String
   }],
-  owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  },
   createdAt: {
     type: Date,
     default: Date.now
@@ -49,21 +45,21 @@ const VenueSchema = new mongoose.Schema({
 
 const Venue = mongoose.models.Venue || mongoose.model('Venue', VenueSchema);
 
-// Sample venue data
+// Sample venue data - Indian venues
 const sampleVenues = [
   {
-    name: "Grand Ballroom",
-    description: "An elegant ballroom perfect for weddings, corporate events, and special celebrations. Features crystal chandeliers, marble floors, and a spacious dance floor.",
+    name: "Rajmahal Palace Banquet",
+    description: "An elegant royal palace perfect for weddings, corporate events, and special celebrations. Features crystal chandeliers, marble floors, and a spacious dance floor.",
     address: {
-      street: "123 Main Street",
-      city: "New York",
-      state: "NY",
-      zipCode: "10001",
-      country: "USA"
+      street: "123 Palace Road",
+      city: "Mumbai",
+      state: "Maharashtra",
+      zipCode: "400001",
+      country: "India"
     },
     capacity: 200,
     amenities: ["WiFi", "Air Conditioning", "Sound System", "Projector", "Catering", "Parking"],
-    pricePerHour: 150,
+    pricePerHour: 8000,
     images: [
       "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800",
       "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
@@ -71,37 +67,18 @@ const sampleVenues = [
     unavailableDates: []
   },
   {
-    name: "Modern Conference Center",
-    description: "State-of-the-art conference facility with the latest technology and flexible seating arrangements. Ideal for business meetings, seminars, and corporate training.",
+    name: "Lotus Garden Resort",
+    description: "Beautiful resort surrounded by lotus gardens and water features. Perfect for outdoor weddings and celebrations with nature as your backdrop.",
     address: {
-      street: "456 Business Ave",
-      city: "Los Angeles",
-      state: "CA",
-      zipCode: "90210",
-      country: "USA"
+      street: "456 Lake Road",
+      city: "Udaipur",
+      state: "Rajasthan",
+      zipCode: "313001",
+      country: "India"
     },
-    capacity: 100,
-    amenities: ["WiFi", "Air Conditioning", "Projector", "Sound System", "Parking"],
-    pricePerHour: 120,
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800"
-    ],
-    unavailableDates: []
-  },
-  {
-    name: "Garden Pavilion",
-    description: "Beautiful outdoor pavilion surrounded by lush gardens. Perfect for outdoor weddings, garden parties, and intimate gatherings with nature as your backdrop.",
-    address: {
-      street: "789 Garden Lane",
-      city: "Miami",
-      state: "FL",
-      zipCode: "33101",
-      country: "USA"
-    },
-    capacity: 80,
-    amenities: ["WiFi", "Sound System", "Catering", "Parking"],
-    pricePerHour: 100,
+    capacity: 150,
+    amenities: ["WiFi", "Air Conditioning", "Sound System", "Catering", "Parking", "Swimming Pool"],
+    pricePerHour: 6500,
     images: [
       "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800"
@@ -109,18 +86,37 @@ const sampleVenues = [
     unavailableDates: []
   },
   {
-    name: "Rooftop Terrace",
+    name: "Taj Convention Center",
+    description: "State-of-the-art convention facility with the latest technology and flexible seating arrangements. Ideal for business meetings, seminars, and corporate training.",
+    address: {
+      street: "789 Business Avenue",
+      city: "Gurgaon",
+      state: "Haryana",
+      zipCode: "122001",
+      country: "India"
+    },
+    capacity: 300,
+    amenities: ["WiFi", "Air Conditioning", "Projector", "Sound System", "Parking"],
+    pricePerHour: 5500,
+    images: [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+      "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800"
+    ],
+    unavailableDates: []
+  },
+  {
+    name: "Skyline Terrace Mumbai",
     description: "Stunning rooftop venue with panoramic city views. Features modern amenities and an open-air design perfect for cocktail parties and evening events.",
     address: {
-      street: "321 Sky High Blvd",
-      city: "Chicago",
-      state: "IL",
-      zipCode: "60601",
-      country: "USA"
+      street: "321 Sky High Tower",
+      city: "Mumbai",
+      state: "Maharashtra",
+      zipCode: "400002",
+      country: "India"
     },
     capacity: 150,
     amenities: ["WiFi", "Sound System", "Parking", "Air Conditioning"],
-    pricePerHour: 180,
+    pricePerHour: 12000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=800"
@@ -128,18 +124,18 @@ const sampleVenues = [
     unavailableDates: []
   },
   {
-    name: "Historic Library Hall",
-    description: "Charming historic venue with classic architecture and vintage charm. Perfect for intimate weddings, book launches, and cultural events.",
+    name: "Heritage Haveli Jaipur",
+    description: "Charming historic venue with classic architecture and vintage charm. Perfect for intimate weddings, cultural events, and traditional celebrations.",
     address: {
       street: "654 Heritage Street",
-      city: "Boston",
-      state: "MA",
-      zipCode: "02101",
-      country: "USA"
+      city: "Jaipur",
+      state: "Rajasthan",
+      zipCode: "302001",
+      country: "India"
     },
-    capacity: 60,
-    amenities: ["WiFi", "Sound System", "Parking"],
-    pricePerHour: 90,
+    capacity: 80,
+    amenities: ["WiFi", "Sound System", "Parking", "Traditional Decor"],
+    pricePerHour: 4500,
     images: [
       "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800",
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
@@ -147,21 +143,59 @@ const sampleVenues = [
     unavailableDates: []
   },
   {
-    name: "Waterfront Event Space",
-    description: "Spectacular waterfront venue with floor-to-ceiling windows offering breathtaking water views. Ideal for upscale events and celebrations.",
+    name: "Backwater Bliss Kerala",
+    description: "Spectacular waterfront venue with breathtaking backwater views. Ideal for destination weddings and upscale events in God's own country.",
     address: {
-      street: "987 Waterfront Drive",
-      city: "Seattle",
-      state: "WA",
-      zipCode: "98101",
-      country: "USA"
+      street: "987 Backwater Drive",
+      city: "Alleppey",
+      state: "Kerala",
+      zipCode: "688001",
+      country: "India"
     },
-    capacity: 120,
-    amenities: ["WiFi", "Air Conditioning", "Sound System", "Projector", "Catering", "Parking"],
-    pricePerHour: 160,
+    capacity: 100,
+    amenities: ["WiFi", "Air Conditioning", "Sound System", "Catering", "Parking", "Boat Access"],
+    pricePerHour: 3500,
     images: [
       "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800",
       "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800"
+    ],
+    unavailableDates: []
+  },
+  {
+    name: "Golden Temple Banquet",
+    description: "Elegant banquet hall with golden decor inspired by Punjab's rich heritage. Perfect for weddings and large celebrations.",
+    address: {
+      street: "456 Golden Avenue",
+      city: "Amritsar",
+      state: "Punjab",
+      zipCode: "143001",
+      country: "India"
+    },
+    capacity: 250,
+    amenities: ["WiFi", "Air Conditioning", "Sound System", "Projector", "Catering", "Parking"],
+    pricePerHour: 7000,
+    images: [
+      "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800",
+      "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800"
+    ],
+    unavailableDates: []
+  },
+  {
+    name: "Mysore Palace Gardens",
+    description: "Beautiful garden venue in the shadow of the historic Mysore Palace. Perfect for royal-themed weddings and cultural events.",
+    address: {
+      street: "123 Palace Road",
+      city: "Mysore",
+      state: "Karnataka",
+      zipCode: "570001",
+      country: "India"
+    },
+    capacity: 180,
+    amenities: ["WiFi", "Sound System", "Catering", "Parking", "Heritage View"],
+    pricePerHour: 5000,
+    images: [
+      "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800"
     ],
     unavailableDates: []
   }
