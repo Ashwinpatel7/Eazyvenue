@@ -257,7 +257,7 @@ function BookingForm({ venue }) {
                     Duration: {((new Date(formData.endDate) - new Date(formData.startDate)) / (1000 * 60 * 60)).toFixed(1)} hours
                   </Typography>
                   <Typography variant="body2" color="white">
-                    Price: ${(venue.pricePerHour * ((new Date(formData.endDate) - new Date(formData.startDate)) / (1000 * 60 * 60))).toFixed(2)}
+                    Price: ₹{(venue.pricePerHour * ((new Date(formData.endDate) - new Date(formData.startDate)) / (1000 * 60 * 60))).toFixed(2)}
                   </Typography>
                 </Box>
               </Grid>

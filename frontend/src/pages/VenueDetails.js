@@ -176,7 +176,7 @@ function VenueDetails() {
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <AccessTimeIcon sx={{ mr: 1, color: 'text.secondary' }} />
                   <Typography variant="body1">
-                    ${venue.pricePerHour}/hour
+                    ₹{venue.pricePerHour}/hour
                   </Typography>
                 </Box>
               </Grid>
