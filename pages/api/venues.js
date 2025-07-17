@@ -54,6 +54,12 @@ async function connectToDatabase() {
   }
 
   try {
+    if (!process.env.MONGODB_URI) {
+      throw new Error('MONGODB_URI environment variable is not defined');
+    }
+    
+    console.log('Connecting to MongoDB with URI starting with:', process.env.MONGODB_URI.substring(0, 20) + '...');
+    
     const connection = await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
