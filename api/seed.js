@@ -234,8 +234,9 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed. Use POST to seed database.' });
+  // Allow both GET and POST for easier testing
+  if (req.method !== 'POST' && req.method !== 'GET') {
+    return res.status(405).json({ message: 'Method not allowed. Use POST or GET to seed database.' });
   }
 
   try {
